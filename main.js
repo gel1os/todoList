@@ -1,7 +1,13 @@
 'use strict';
-(function($) {
 
+var lists = {
+    'groceries': ['apples', 'peaches', 'pizza'],
+    'technologies': ['js', 'angular', 'react']
+};
+
+(function($, lists) {
     var doc = document;
+
     var listModel = {
         chosenList: null,
         
@@ -159,6 +165,31 @@
                 newList.tasks.unshift(task);
                 oldList.tasks.splice(taskId, 1);
                 this.saveListsData();
+            }
+        },
+
+        importLists: function(obj) {
+            var externalTasks;
+            var tasks;
+
+            for (var list in obj) {
+                if (obj.hasOwnProperty(list)) {
+                    externalTasks = (helpers.isArray(obj[list])) ? obj[list] : [];
+                    tasks = [];
+
+                    externalTasks.forEach(function(task) {
+                        tasks.push({
+                            description: task,
+                            solved: false
+                        })
+                    });
+
+                    listModel.lists.push({
+                        name: list,
+                        tasks: tasks,
+                        id: helpers.generateRandomId()
+                    })
+                }
             }
         }
     };
@@ -434,6 +465,9 @@
             var min = 100000;
             var max = 999999;
             return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        isArray: function(value) {
+            return !!value && value.constructor.name === 'Array';
         }
     };
 
@@ -569,6 +603,8 @@
         }
     };
 
+    // importing from lists object is removed
+    //listModel.importLists(lists);
     listModel.getListsData();
 
     listCreator.init();
@@ -578,4 +614,4 @@
 
     allListsView.render();
 
-}(window.jQuery));
+}(window.jQuery, lists));
