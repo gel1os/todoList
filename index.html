@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="container">
+    <h3>Todo list</h3>
+    <div class="list-creator">
+        <form class="form-group" name="create-list">
+            <label class="control-label">
+                List name:
+                <input type="text" class="form-control list-name"
+                       placeholder="List name"
+                       required
+                       pattern="[^<>\\\/#\$\{\}]+"
+                       maxlength="255"
+                        >
+            </label>
+
+            <div class="buttons">
+                <input type="submit" class="btn btn-success create-list" value="Create list"/>
+                <input type="reset" class="btn btn-default cancel-list-creation" value="Cancel">
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="lists-wrapper col-xs-8 col-sm-5 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">All lists</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="list-view col-md-5 hidden">
+            <h3 class="list-name"></h3>
+
+            <div class="btn btn-link edit-list">Edit</div>
+            <form name="edit-list-name" class="form-group hidden">
+                <label class="control-label">
+                    <input type="text" class="form-control list-name"
+                           placeholder="List name"
+                           required
+                           pattern="[^<>\\\/#\$\{}]+"
+                           maxlength="255"
+                            >
+                </label>
+                <div class="buttons">
+                    <input type="submit" class="btn btn-success save-list-name" value="Save name"/>
+                    <div class="btn btn-danger delete-list">Delete list</div>
+                    <input type="reset" class="btn btn-default cancel-list-name-edit" value="Cancel">
+                </div>
+            </form>
+            <form class="form-group" name="add-task">
+                <label class="control-label">
+                    Task name:
+                    <input type="text" class="form-control task-name"
+                           placeholder="Task name"
+                           required
+                           pattern="[^<>\\\/#\$\{}]+"
+                           maxlength="255"
+                            >
+                </label>
+
+                <div class="buttons">
+                    <input type="submit" class="btn btn-success add-task" value="Add task"/>
+                    <input type="reset" class="btn btn-default cancel-task-creation" value="Cancel">
+                </div>
+            </form>
+            <form class="form-group hidden" name="edit-task">
+                <label class="control-label">
+                    Task name:
+                    <input type="text" class="form-control task-name"
+                           placeholder="Task name"
+                           required
+                           pattern="[^<>\\\/#\$\{}]+"
+                           maxlength="255"
+                            >
+                </label>
+
+                <div class="buttons">
+                    <input type="submit" class="btn btn-success save-task-name" value="Save task name"/>
+                    <div class="btn btn-danger delete-task">Delete task</div>
+                    <input type="reset" class="btn btn-default cancel-task-editing" value="Cancel">
+                </div>
+            </form>
+            <div class="list-details"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+

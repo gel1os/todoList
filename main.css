@@ -1,0 +1,78 @@
+.hidden {
+    display: none;
+}
+
+.show-list-creator {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.list-name {
+    margin-top: 0;
+    display: inline-block;
+}
+
+.list-name:focus:invalid {
+    border-color: #a94442;
+}
+
+.list:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #4cae4c;
+}
+
+.task-item {
+    cursor: move;
+}
+
+.task-item input {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.task-item.solved label {
+    color: grey;
+    text-decoration: line-through;
+}
+
+.task-item label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*overflow: hidden !important;*/
+    cursor: move;
+}
+
+.task-item .btn-link {
+    visibility: hidden;
+}
+.task-item:hover .btn-link {
+    display: inline-block;
+    visibility: visible;
+}
+
+.panel-default>.panel-heading {
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+form[name="edit-list-name"] .buttons {
+    display: inline-block;
+}
+
+.empty {
+    padding: 10px;
+}
+
+.drop-hover {
+    outline: 2px solid #4cae4c;
+    z-index: 3;
+}
+
+.list-active {
+    color: #4cae4c;
+}
